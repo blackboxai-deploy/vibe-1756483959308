@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FoodieHub - Delicious Food Delivery</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- Header Navigation -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>🍕 FoodieHub</h1>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#menu" class="nav-link">Menu</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                    <li><a href="cart.html" class="cart-link">
+                        🛒 Cart <span id="cart-count" class="cart-count">0</span>
+                    </a></li>
+                </ul>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h2>Delicious Food Delivered to Your Door</h2>
+                <p>Discover amazing dishes from the best restaurants in your area. Fresh ingredients, fast delivery, and unbeatable taste!</p>
+                <button class="cta-button" onclick="document.getElementById('menu').scrollIntoView({behavior: 'smooth'})">
+                    Order Now
+                </button>
+            </div>
+            <div class="hero-image">
+                <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e078cf4f-8636-4e91-a899-30d740299415.png" alt="Delicious gourmet food spread with colorful dishes and fresh ingredients" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">Browse by Category</h2>
+            <div class="category-grid">
+                <div class="category-card" onclick="filterCategory('pizza')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e68b058a-de2c-4686-8aa2-7e6f43c89d40.png" alt="Fresh margherita pizza with melted cheese and basil" />
+                    <h3>Pizza</h3>
+                </div>
+                <div class="category-card" onclick="filterCategory('burgers')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a3b1643c-893d-4416-92ee-7639ea2f1134.png" alt="Juicy beef burger with lettuce tomato and cheese" />
+                    <h3>Burgers</h3>
+                </div>
+                <div class="category-card" onclick="filterCategory('pasta')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d164fd30-c612-4c02-a091-e4f73cf61030.png" alt="Creamy pasta dish with herbs and parmesan cheese" />
+                    <h3>Pasta</h3>
+                </div>
+                <div class="category-card" onclick="filterCategory('desserts')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/658513c4-208a-4b62-9201-e35407a618ab.png" alt="Decadent chocolate cake with berry garnish" />
+                    <h3>Desserts</h3>
+                </div>
+                <div class="category-card" onclick="filterCategory('drinks')">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7e75bd50-b300-45a2-9cad-c1144d9a2106.png" alt="Refreshing colorful beverages with fruit garnishes" />
+                    <h3>Drinks</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="container">
+            <h2 class="section-title">Our Menu</h2>
+            
+
+
+            <!-- Menu Items -->
+            <div class="menu-grid" id="menu-items">
+                <!-- Pizza Items -->
+                <div class="menu-item" data-category="pizza">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/fe7a6ef9-0915-483e-ae88-654dd30cc74a.png" alt="Classic margherita pizza with fresh mozzarella and basil" />
+                    <div class="item-content">
+                        <h3>Margherita Pizza</h3>
+                        <p>Classic pizza with fresh mozzarella, tomato sauce, and basil leaves</p>
+                        <div class="item-footer">
+                            <span class="price">$12.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(1, 'Margherita Pizza', 12.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f1a0f3b7-9c9b-484a-baf7-908cbba2b4c5.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pizza">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d418d1e0-97c5-4112-8511-7d6ac89a6ac4.png" alt="Pepperoni pizza with spicy salami and melted cheese" />
+                    <div class="item-content">
+                        <h3>Pepperoni Pizza</h3>
+                        <p>Loaded with spicy pepperoni and melted mozzarella cheese</p>
+                        <div class="item-footer">
+                            <span class="price">$14.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(2, 'Pepperoni Pizza', 14.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3c16a91c-043e-4326-8348-0322988ece6b.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pizza">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/24341f53-993a-4aed-b7c0-ce4a264ac542.png" alt="Supreme pizza with vegetables meat and cheese" />
+                    <div class="item-content">
+                        <h3>Supreme Pizza</h3>
+                        <p>Loaded with pepperoni, sausage, peppers, onions, and mushrooms</p>
+                        <div class="item-footer">
+                            <span class="price">$18.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(3, 'Supreme Pizza', 18.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ea39b9e5-347b-485f-8034-cf97fc52f788.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Burger Items -->
+                <div class="menu-item" data-category="burgers">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6f1f31ef-6f07-4dbe-9921-d84c8dc06e0c.png" alt="Classic beef burger with lettuce tomato onion" />
+                    <div class="item-content">
+                        <h3>Classic Beef Burger</h3>
+                        <p>Juicy beef patty with lettuce, tomato, onion, and our special sauce</p>
+                        <div class="item-footer">
+                            <span class="price">$9.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(4, 'Classic Beef Burger', 9.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/13e48659-c4ee-48ee-88b1-aa8f31ba4b35.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="burgers">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a4c23b5e-ae50-4c5c-8b00-da47dccde019.png" alt="Chicken burger with crispy fried chicken and sauce" />
+                    <div class="item-content">
+                        <h3>Crispy Chicken Burger</h3>
+                        <p>Crispy fried chicken breast with mayo, lettuce, and pickles</p>
+                        <div class="item-footer">
+                            <span class="price">$10.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(5, 'Crispy Chicken Burger', 10.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9023b589-c63d-4af2-b609-05553cee9005.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="burgers">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/39a1030c-4f74-4437-8f4e-a81d2eea03ff.png" alt="Veggie burger with plant based patty and vegetables" />
+                    <div class="item-content">
+                        <h3>Veggie Burger</h3>
+                        <p>Plant-based patty with avocado, sprouts, and herb mayo</p>
+                        <div class="item-footer">
+                            <span class="price">$11.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(6, 'Veggie Burger', 11.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e7e75667-bd98-4946-974c-b4ea4c12c3d2.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pasta Items -->
+                <div class="menu-item" data-category="pasta">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/abc262ca-7039-42d3-af49-28d0bb19af1b.png" alt="Creamy fettuccine alfredo with parmesan cheese" />
+                    <div class="item-content">
+                        <h3>Fettuccine Alfredo</h3>
+                        <p>Creamy alfredo sauce with fresh fettuccine and parmesan</p>
+                        <div class="item-footer">
+                            <span class="price">$13.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(7, 'Fettuccine Alfredo', 13.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5e002841-cba5-4355-858c-df64c8ac2fdd.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pasta">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0f015868-b283-4bdd-9173-41e4d5e93024.png" alt="Spaghetti bolognese with rich meat sauce" />
+                    <div class="item-content">
+                        <h3>Spaghetti Bolognese</h3>
+                        <p>Traditional meat sauce with herbs served over spaghetti</p>
+                        <div class="item-footer">
+                            <span class="price">$14.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(8, 'Spaghetti Bolognese', 14.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/bcce5e46-a91c-4a9a-9b5b-94fece87e57c.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="pasta">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/b96fccdb-0bca-4c8d-9f8d-b75ade839d94.png" alt="Penne arrabbiata with spicy tomato sauce" />
+                    <div class="item-content">
+                        <h3>Penne Arrabbiata</h3>
+                        <p>Spicy tomato sauce with garlic, chili, and fresh herbs</p>
+                        <div class="item-footer">
+                            <span class="price">$12.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(9, 'Penne Arrabbiata', 12.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/d27b3482-749a-4093-8ae8-4722ca2c3020.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dessert Items -->
+                <div class="menu-item" data-category="desserts">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6d9383da-4e8a-41a3-816f-186850cc41b9.png" alt="Rich chocolate cake with berry garnish" />
+                    <div class="item-content">
+                        <h3>Chocolate Cake</h3>
+                        <p>Rich chocolate cake with layers of ganache and fresh berries</p>
+                        <div class="item-footer">
+                            <span class="price">$6.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(10, 'Chocolate Cake', 6.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/cbd6c161-e901-469b-9bfb-dec12a8b98e8.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/95d085f5-86ec-49a9-bd76-e59ae6d78b0f.png" alt="Creamy tiramisu with coffee and mascarpone" />
+                    <div class="item-content">
+                        <h3>Tiramisu</h3>
+                        <p>Classic Italian dessert with coffee, mascarpone, and cocoa</p>
+                        <div class="item-footer">
+                            <span class="price">$7.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(11, 'Tiramisu', 7.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9124ffe0-2986-4664-88f7-248102b50fbc.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="desserts">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3f7a5124-04a8-4347-9442-cb62c9fdf534.png" alt="Vanilla ice cream sundae with chocolate sauce" />
+                    <div class="item-content">
+                        <h3>Ice Cream Sundae</h3>
+                        <p>Vanilla ice cream with hot fudge, whipped cream, and cherry</p>
+                        <div class="item-footer">
+                            <span class="price">$4.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(12, 'Ice Cream Sundae', 4.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/38db0225-f61b-4aab-872b-d9ab73b8c4fe.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Drink Items -->
+                <div class="menu-item" data-category="drinks">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e9d574d9-e449-4887-adaf-b9ca192b57fe.png" alt="Fresh orange juice in tall glass" />
+                    <div class="item-content">
+                        <h3>Fresh Orange Juice</h3>
+                        <p>Freshly squeezed orange juice, no added sugar</p>
+                        <div class="item-footer">
+                            <span class="price">$3.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(13, 'Fresh Orange Juice', 3.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4543c58a-76d8-4444-8a88-40ff3bb3ae39.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="drinks">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4dc06154-b44a-4886-835e-6b92c54e3ed0.png" alt="Iced coffee with whipped cream and caramel" />
+                    <div class="item-content">
+                        <h3>Iced Coffee</h3>
+                        <p>Cold brew coffee with ice, cream, and caramel drizzle</p>
+                        <div class="item-footer">
+                            <span class="price">$4.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(14, 'Iced Coffee', 4.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/2228c00f-33fc-4dc5-8fd2-e0041f478490.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="menu-item" data-category="drinks">
+                    <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/1cdd1d8c-ad62-48a6-a5a2-7ee7669733c4.png" alt="Sparkling water with lime and mint" />
+                    <div class="item-content">
+                        <h3>Sparkling Water</h3>
+                        <p>Refreshing sparkling water with lime and fresh mint</p>
+                        <div class="item-footer">
+                            <span class="price">$2.99</span>
+                            <div class="quantity-controls">
+                                <button class="qty-btn minus" onclick="updateQuantity(this, -1)">-</button>
+                                <span class="quantity">1</span>
+                                <button class="qty-btn plus" onclick="updateQuantity(this, 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCart(15, 'Sparkling Water', 2.99, 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0852aefc-1d18-4cc3-9620-50c9baba5d3e.png')">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🍕 FoodieHub</h3>
+                    <p>Delicious food delivered fresh to your door. Quality ingredients, fast service, and unbeatable taste!</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 (555) 123-4567</p>
+                    <p>📧 hello@foodiehub.com</p>
+                    <p>📍 123 Food Street, Taste City</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <p>Stay connected for the latest deals!</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 FoodieHub. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Success Message -->
+    <div id="success-message" class="success-message hidden">
+        <p>Item added to cart successfully! 🎉</p>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
